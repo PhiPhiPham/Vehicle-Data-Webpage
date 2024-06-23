@@ -1,37 +1,30 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
+namespace App\Models;
 
-class CreateVehiclesTable extends Migration
+// use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+
+class Vehicle extends Authenticatable
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
-    {
-        Schema::create('vehicles', function (Blueprint $table) {
-            $table->id();
-            $table->string('make');
-            $table->string('model');
-            $table->string('type');
-            $table->string('part_number');
-            // Add any additional columns from the dataset here
-            // $table->string('some_other_column')->nullable();
-            $table->timestamps();
-        });
-    }
+    use HasFactory, Notifiable;
 
     /**
-     * Reverse the migrations.
+     * The attributes that are mass assignable.
      *
-     * @return void
+     * @var array<int, string>
      */
-    public function down()
-    {
-        Schema::dropIfExists('vehicles');
-    }
+    protected $fillable = [
+        'make',
+        'model',
+        'type',
+        'part_number',
+    ];
+
+  
+
+    public $timestamp=false;
 }
+
