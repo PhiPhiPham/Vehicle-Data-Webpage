@@ -58,9 +58,9 @@ const Vehicle = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-4">
+    <div className="min-h-screen bg-orange-50 flex flex-col items-center justify-center p-4">
       <div className="bg-white shadow-md rounded p-6 w-full max-w-md">
-      <h1 className="text-2xl font-bold mb-6 text-center">Vehicle Parts App</h1>
+      <h1 className="text-3xl font-bold mb-6 text-center">Vehicle Parts Finder</h1>
       <Dropdown
         label="Select Make:"
         options={makes}
