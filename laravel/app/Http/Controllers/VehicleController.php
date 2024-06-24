@@ -27,7 +27,8 @@ class VehicleController extends Controller
     // Get distinct makes
     public function getMakes()
     {
-        $makes = Vehicle::distinct()->pluck('make');
+        $makes = Vehicle::distinct()
+                        ->pluck('make');
         return response()->json($makes);
     }
 
