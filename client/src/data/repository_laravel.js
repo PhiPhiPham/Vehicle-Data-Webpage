@@ -1,5 +1,5 @@
 import axios from 'axios';
-const API_HOST = "http://localhost:3037";
+const API_HOST = "http://localhost:8000";
 
 const fetchMakes = async () => {
     const response = await axios.get(API_HOST + '/api/makes');
@@ -18,7 +18,7 @@ const fetchMakes = async () => {
 
   const fetchPartNumber = async (make, model, type) => {
     const response = await axios.get(API_HOST + `/api/part-number/${make}/${model}/${type}`);
-    return response.data;
+    return response.data.part_number;
   };
 
   export {

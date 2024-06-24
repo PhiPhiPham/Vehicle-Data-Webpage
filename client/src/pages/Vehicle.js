@@ -18,6 +18,7 @@ const Vehicle = () => {
         const response = await fetchMakes();
         setMakes(response);
     }
+    initialFetch();
   }, []);
   
   const handleMakeChange = async (make) => {
@@ -27,7 +28,7 @@ const Vehicle = () => {
     setPartNumber('');
     try {
         const response = await fetchModels(make);
-        setMakes(response);
+        setModels(response);
     } catch (error) {
         console.error('Error fetching makes:', error);
     } 
@@ -40,7 +41,7 @@ const Vehicle = () => {
     
     try {
         const response = await fetchTypes(selectedMake, model);
-        setModels(response);
+        setTypes(response);
     } catch (error) {
         console.error(`Error fetching models for ${selectedMake}:`, error);
     } 
