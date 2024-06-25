@@ -20,7 +20,7 @@ const Vehicle = () => {
         const response = await fetchMakes();
         setMakes(response);
     }
-    // initialFetch();
+    initialFetch();
   }, []);
   
   const handleMakeChange = async (make) => {
