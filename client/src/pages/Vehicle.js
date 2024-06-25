@@ -23,9 +23,7 @@ const Vehicle = () => {
   
   const handleMakeChange = async (make) => {
     setSelectedMake(make);
-    setSelectedModel('');
-    setSelectedType('');
-    setPartNumber('');
+    
     try {
         const response = await fetchModels(make);
         setModels(response);
@@ -36,8 +34,6 @@ const Vehicle = () => {
 
   const handleModelChange = async (model) => {
     setSelectedModel(model);
-    setSelectedType('');
-    setPartNumber('');
     
     try {
         const response = await fetchTypes(selectedMake, model);
