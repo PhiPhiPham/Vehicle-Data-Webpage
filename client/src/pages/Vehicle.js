@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Dropdown from '../components/dropdown';
 import PartNumber from '../components/partNumber';
+import DarkModeToggle from '../components/darkModeToggle';
 import  {fetchMakes, fetchModels, fetchTypes, fetchPartNumber } from '../data/repository_laravel';
+
 
 const Vehicle = () => {
   const [makes, setMakes] = useState([]);
@@ -18,7 +20,7 @@ const Vehicle = () => {
         const response = await fetchMakes();
         setMakes(response);
     }
-    initialFetch();
+    // initialFetch();
   }, []);
   
   const handleMakeChange = async (make) => {
@@ -54,9 +56,10 @@ const Vehicle = () => {
   };
 
   return (
-    <div className="min-h-screen bg-orange-50 flex flex-col items-center justify-center p-4">
-      <div className="bg-white shadow-md rounded p-6 w-full max-w-md md:max-w-lg lg:max-w-xl">
-      <h1 className="text-3xl font-bold mb-6 text-center">Vehicle Parts Finder</h1>
+    <div className="min-h-screen bg-orange-50 dark:bg-neutral-900 flex flex-col items-center justify-center p-4">
+      <DarkModeToggle/>
+      <div className="bg-white dark:bg-neutral-800 shadow-md rounded p-6 w-full max-w-md md:max-w-lg lg:max-w-xl">
+      <h1 className="dark:text-slate-100 text-3xl font-bold mb-6 text-center">Vehicle Parts Finder</h1>
       <Dropdown
         label="Select Make:"
         options={makes}
